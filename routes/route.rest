@@ -10,10 +10,19 @@ POST http://localhost:3000/posts
 Content-Type: application/json
 
 {
-    "name": "My Second Post",
+    "name": "My First Post",
     "userPostId": 21
 }
 
 ###
 
 DELETE http://localhost:3000/posts/64668a3bae5235924630f94c
+
+###
+
+PATCH http://localhost:3000/posts/64668b6d1660eb95a4190672 
+Content-Type: application/json
+
+{
+    "name": "Updated name"
+}

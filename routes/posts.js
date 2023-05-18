@@ -32,7 +32,20 @@ router.post("/", async (req, res) => {
 });
 
 //Updating one post
-router.patch("/:id", getPost, (req, res) => {});
+router.patch("/:id", getPost, async (req, res) => {
+  if (req.body.name != null) {
+    res.post.name = req.body.name;
+  }
+  if (req.body.userPostId != null) {
+    res.post.userPostId = req.body.userPostId;
+  }
+  try {
+    const updatedPost = await res.post.save();
+    res.json(updatedPost);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
 
 //Delete one post
 router.delete("/:id", getPost, async (req, res) => {
