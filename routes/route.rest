@@ -2,7 +2,7 @@ GET http://localhost:3000/posts
 
 ###
 
-GET http://localhost:3000/posts/12
+GET http://localhost:3000/posts/646683a1938d164bca0395de
 
 ###
 
