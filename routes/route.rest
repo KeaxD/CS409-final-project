@@ -3,3 +3,13 @@ GET http://localhost:3000/posts
 ###
 
 GET http://localhost:3000/posts/12
+
+###
+
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+    "name": "MyfirstPost",
+    "userPostId": 21
+}
