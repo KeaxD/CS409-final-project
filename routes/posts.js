@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 
 //Getting one post
 router.get("/:id", getPost, (req, res) => {
-  res.send(res.post.name);
+  res.json(res.post);
 });
 
 //Creating one post
@@ -35,7 +35,14 @@ router.post("/", async (req, res) => {
 router.patch("/:id", getPost, (req, res) => {});
 
 //Delete one post
-router.delete("/:id", getPost, (req, res) => {});
+router.delete("/:id", getPost, async (req, res) => {
+  try {
+    await res.post.deleteOne();
+    res.json({ message: "Deleted Post" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 
 async function getPost(req, res, next) {
   try {
