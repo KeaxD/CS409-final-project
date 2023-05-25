@@ -2,7 +2,7 @@ GET http://localhost:3000/posts
 
 ###
 
-GET http://localhost:3000/posts/646683a1938d164bca0395de
+GET http://localhost:3000/posts/64682c408fdeff515912a9c2
 
 ###
 
@@ -10,19 +10,19 @@ POST http://localhost:3000/posts
 Content-Type: application/json
 
 {
-    "name": "My First Post",
-    "userPostId": 21
+    "name": "My Second Post",
+    "userPostId": 22
 }
 
 ###
 
-DELETE http://localhost:3000/posts/64668a3bae5235924630f94c
+DELETE http://localhost:3000/posts/64682c408fdeff515912a9c2
 
 ###
 
-PATCH http://localhost:3000/posts/64668b6d1660eb95a4190672 
+PATCH http://localhost:3000/posts/64682c4e8fdeff515912a9c5 
 Content-Type: application/json
 
 {
-    "name": "Updated name"
+    "name": "My updated second post name"
 }
