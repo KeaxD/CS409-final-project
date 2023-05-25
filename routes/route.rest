@@ -1,3 +1,4 @@
+
 GET http://localhost:3000/posts
 
 ###
@@ -11,7 +12,7 @@ Content-Type: application/json
 
 {
     "name": "My Second Post",
-    "userPostId": 22
+    "userPostId": 298
 }
 
 ###
