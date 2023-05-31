@@ -1,13 +1,13 @@
 
-GET http://localhost:3000/posts
+GET http://localhost:8080/posts
 
 ###
 
-GET http://localhost:3000/posts/64682c408fdeff515912a9c2
+GET http://localhost:8080/posts/6476c966f308e87873b48bd8
 
 ###
 
-POST http://localhost:3000/posts
+POST http://localhost:8080/posts
 Content-Type: application/json
 
 {
@@ -17,11 +17,11 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/posts/64682c408fdeff515912a9c2
+DELETE http://localhost:8080/posts/6476c95af308e87873b48bd5
 
 ###
 
-PATCH http://localhost:3000/posts/64682c4e8fdeff515912a9c5 
+PATCH http://localhost:8080/posts/6476c966f308e87873b48bd8 
 Content-Type: application/json
 
 {

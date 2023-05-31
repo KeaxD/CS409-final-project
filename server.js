@@ -1,16 +1,23 @@
 require("dotenv").config();
 
 const express = require("express");
-const app = express();
 const mongoose = require("mongoose");
 
-mongoose.connect(process.env.DATABASE_URL);
-const db = mongoose.connection;
-db.on("error", (error) => console.error(error));
-db.once("open", () => console.log("Connected to Database"));
+mongoose
+  .connect("mongodb://mongo:27017/someRandomDB", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log(`CONNECTED TO MONGO!`);
+    const app = express();
+    app.use(express.json());
 
-app.use(express.json());
-
-const postsRouter = require("./routes/posts");
-app.use("/posts", postsRouter);
-app.listen("3000", () => console.log("Server is listening on port 3000"));
+    const postsRouter = require("./routes/posts");
+    app.use("/posts", postsRouter);
+    app.listen("8080", () => console.log("Server is listening on port 8080"));
+  })
+  .catch((err) => {
+    console.log(`OH NO! MONGO CONNECTION ERROR!`);
+    console.log(err);
+  });
