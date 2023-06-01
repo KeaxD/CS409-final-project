@@ -1,23 +1,32 @@
 
-GET http://localhost:8080/api/
+GET http://localhost:8080/api
 
 ###
 
-GET http://localhost:8080/posts/
+GET http://localhost:8080/posts/6477d96f9b67114bde55697c
+
+### GET ALL USERS
+
+GET http://localhost:8080/api/auth/
 
 ###
 
-POST http://localhost:8080/posts
+POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-    "name": "My Second Post",
-    "userPostId": 298
+    "name": "Carl",
+    "email": "test@test.com",
+    "password": "asdsad"
 }
 
 ###
 
-DELETE http://localhost:8080/posts/6476c95af308e87873b48bd5
+DELETE http://localhost:8080/posts/6477d96f9b67114bde55697c
+
+###
+
+DELETE http://localhost:8080/api/auth/6477f4064cc404d70ab5a726
 
 ###
 
