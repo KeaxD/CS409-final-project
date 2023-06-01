@@ -1,6 +1,6 @@
 
-GET http://localhost:8080/api
-
+GET http://localhost:8080/api/login
+Authorization:JWT JWTeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc4MjczN2EzZmE5MDU1MWVkODc0MjIiLCJlbWFpbCI6Im15b3duZW1haWxAdGVzdC5jb20iLCJpYXQiOjE2ODU2NDY2MjN9.VMTwLOsS2q0vx0YQVgXn84Gsy6i0hfvxII20ophI2RU
 ###
 
 GET http://localhost:8080/posts/6477d96f9b67114bde55697c
