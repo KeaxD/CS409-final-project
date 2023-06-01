@@ -15,8 +15,17 @@ router.get("/", async (req, res) => {
 });
 
 //Getting one post
-router.get("/:id", getPost, (req, res) => {
-  res.json(res.post);
+router.get("/:id", (req, res) => {
+  Post.findOne({ _id: req.params.id })
+    .populate("author")
+    .then(function (post) {
+      if (post) {
+        res.json(post);
+      } else {
+        res.status(404);
+        res.json({ error: "Post doesn't exist" });
+      }
+    });
 });
 
 //Creating one post
@@ -27,7 +36,8 @@ router.post("/", async (req, res) => {
   }
   const post = new Post({
     name: req.body.name,
-    userPostId: req.body.userPostId,
+    content: req.body.content,
+    author: req.user._id,
   });
   try {
     const newPost = await post.save();

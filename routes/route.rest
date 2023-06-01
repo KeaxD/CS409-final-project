@@ -10,10 +10,15 @@ POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-    "name": "Kevin",
-    "email": "myownemail@test.com",
+    "name": "Alvin",
+    "email": "Alvin@test.com",
     "password": "12345"
 }
+
+###----------------DELETE ONE USER------------------------------
+
+DELETE http://localhost:8080/api/auth/6478005ecb69e5fbf170015d
+
 
 ###----------------LOGIN PART------------------------------
 
@@ -22,18 +27,18 @@ POST http://localhost:8080/api/auth/login
 Content-Type: application/json
 
 {
-    "name": "Kevin",
-    "email": "myownemail@test.com",
+    "name": "Alvin",
+    "email": "Alvin@test.com",
     "password": "12345"
 }
 
 ###----------------ACCESS TOKEN PART------------------------------
 
 GET http://localhost:8080/api/login
-Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc4MjczN2EzZmE5MDU1MWVkODc0MjIiLCJlbWFpbCI6Im15b3duZW1haWxAdGVzdC5jb20iLCJpYXQiOjE2ODU2NDY2MjN9.VMTwLOsS2q0vx0YQVgXn84Gsy6i0hfvxII20ophI2RU
+Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc4ZmRmM2E4MDI2NTAwNzY2ODZjYzAiLCJlbWFpbCI6IkFsdmluQHRlc3QuY29tIiwiaWF0IjoxNjg1NjUxMDM3fQ.uRQeWXVgXOs3Bx519Gu8rX09quiJD3dhFoiCOZO5EeY
 
 
-###----------------GET ALL POSTS------------------------------
+###----------------GET POSTS------------------------------
 
 GET http://localhost:8080/posts/
 
@@ -50,6 +55,7 @@ Content-Type: application/json
 ###----------------DELETE ONE POST------------------------------
 
 DELETE http://localhost:8080/posts/6477dc8ae47ce59f21a87b70
+
 
 ###----------------UPDATE ONE POST------------------------------
 
