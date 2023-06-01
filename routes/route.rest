@@ -1,9 +1,9 @@
 
-GET http://localhost:8080/posts
+GET http://localhost:8080/api/
 
 ###
 
-GET http://localhost:8080/posts/6476c966f308e87873b48bd8
+GET http://localhost:8080/posts/
 
 ###
 
