@@ -5,20 +5,36 @@ GET http://localhost:8080/api
 
 GET http://localhost:8080/posts/6477d96f9b67114bde55697c
 
-### GET ALL USERS
+###----------------GET ALL USERS------------------------------
 
 GET http://localhost:8080/api/auth/
 
-###
+
+
+###----------------SIGN UP PART------------------------------
 
 POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-    "name": "Carl",
-    "email": "test@test.com",
-    "password": "asdsad"
+    "name": "Kevin",
+    "email": "myownemail@test.com",
+    "password": "12345"
 }
+
+###----------------LOGIN PART------------------------------
+
+
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+    "name": "Kevin",
+    "email": "myownemail@test.com",
+    "password": "12345"
+}
+
+###
 
 ###
 

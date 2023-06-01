@@ -26,6 +26,7 @@ router.post("/signup", (req, res) => {
     res.json({ success: false, message: "Email and Password are required" });
   } else {
     const newUser = new User({
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password,
     });
@@ -53,27 +54,26 @@ router.post("/signup", (req, res) => {
   }
 });
 
-router.post("/login", (req, res) => {
-  User.findOne({ email: req.body.email }, (err, user) => {
-    if (err) {
-      console.log(err);
-      res.sendStatus(500);
-      return;
-    }
+router.post("/login", async (req, res) => {
+  try {
+    const user = await User.findOne({ email: req.body.email });
     if (!user) {
-      res.status(401).send({ success: false, message: "User not found" });
-    } else {
-      user.comparePassword(req.body.password, (err, isMatch) => {
-        if (isMatch) {
-          const tokenObj = { _id: user._id, email: user.email };
-          const token = jwt.sign(tokenObj, config.secret);
-          res.send({ success: true, token: "JWT" + token });
-        } else {
-          res.status(401).send({ success: false, message: "Wrong Password" });
-        }
-      });
+      return res
+        .status(401)
+        .json({ success: false, message: "User not found" });
     }
-  });
+    const isMatch = await user.comparePassword(req.body.password);
+    if (isMatch) {
+      const tokenObj = { _id: user._id, email: user.email };
+      const token = jwt.sign(tokenObj, config.secret);
+      res.send({ success: true, token: "JWT" + token });
+    } else {
+      res.status(401).send({ success: false, message: "Wrong Password" });
+    }
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(500);
+  }
 });
 
 async function getUser(req, res, next) {
