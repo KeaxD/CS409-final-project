@@ -1,17 +1,10 @@
-
-GET http://localhost:8080/api/login
-Authorization:JWT JWTeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc4MjczN2EzZmE5MDU1MWVkODc0MjIiLCJlbWFpbCI6Im15b3duZW1haWxAdGVzdC5jb20iLCJpYXQiOjE2ODU2NDY2MjN9.VMTwLOsS2q0vx0YQVgXn84Gsy6i0hfvxII20ophI2RU
-###
-
-GET http://localhost:8080/posts/6477d96f9b67114bde55697c
-
 ###----------------GET ALL USERS------------------------------
 
 GET http://localhost:8080/api/auth/
 
 
 
-###----------------SIGN UP PART------------------------------
+###----------------CREATE USER------------------------------
 
 POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
@@ -34,21 +27,36 @@ Content-Type: application/json
     "password": "12345"
 }
 
-###
+###----------------ACCESS TOKEN PART------------------------------
 
-###
+GET http://localhost:8080/api/login
+Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc4MjczN2EzZmE5MDU1MWVkODc0MjIiLCJlbWFpbCI6Im15b3duZW1haWxAdGVzdC5jb20iLCJpYXQiOjE2ODU2NDY2MjN9.VMTwLOsS2q0vx0YQVgXn84Gsy6i0hfvxII20ophI2RU
 
-DELETE http://localhost:8080/posts/6477d96f9b67114bde55697c
 
-###
+###----------------GET ALL POSTS------------------------------
 
-DELETE http://localhost:8080/api/auth/6477f4064cc404d70ab5a726
+GET http://localhost:8080/posts/
 
-###
 
-PATCH http://localhost:8080/posts/6476c966f308e87873b48bd8 
+###----------------CREATE ONE POST------------------------------
+
+POST http://localhost:8080/posts/
 Content-Type: application/json
 
 {
-    "name": "My updated second post name"
+    "name": "My first Post"
+}
+
+###----------------DELETE ONE POST------------------------------
+
+DELETE http://localhost:8080/posts/6477dc8ae47ce59f21a87b70
+
+###----------------UPDATE ONE POST------------------------------
+
+
+PATCH http://localhost:8080/posts/6478f3561ef04eda403ae4db 
+Content-Type: application/json
+
+{
+    "name": "My Second updated First post name"
 }

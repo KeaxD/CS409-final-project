@@ -21,7 +21,7 @@ router.get("/:id", getPost, (req, res) => {
 
 //Creating one post
 router.post("/", async (req, res) => {
-  if (!req.body.name || !req.body.userPostId) {
+  if (!req.body.name) {
     res.status(400);
     res.json({ sucess: false, error: "Missing title or content" });
   }

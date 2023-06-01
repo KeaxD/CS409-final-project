@@ -3,7 +3,6 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 const { route } = require("./posts");
 const config = require("../config/config");
-const user = require("../models/user");
 
 const router = express.Router();
 
@@ -18,6 +17,16 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", getUser, (req, res) => {
   res.json(res.user);
+});
+
+//Delete one user
+router.delete("/:id", getUser, async (req, res) => {
+  try {
+    await res.user.deleteOne();
+    res.json({ message: "Deleted User" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
 router.post("/signup", (req, res) => {
