@@ -72,3 +72,8 @@ Content-Type: application/json
 {
     "name": "My ADMIN updated First post name"
 }
+
+###---------------GET ACCOUNT INFO-------------------------------
+
+GET http://localhost:8080/account/
+Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5NGIwNjFjYTcxZjY1NWMyOWM3MWIiLCJlbWFpbCI6IktldmluQHRlc3QuY29tIiwiaWF0IjoxNjg1Njg4NTcxfQ.D82uQfFg0ZK1I3rutXSZD0JWuWwV9GC-i0vP8bpn5-Q

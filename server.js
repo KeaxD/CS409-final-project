@@ -17,6 +17,9 @@ mongoose
     const app = express();
     app.use(express.json());
 
+    //Auth routes: people login and sign up here ; Accessible by everyone
+    app.use("/api/auth", routes.auth);
+
     //Post Routes: where users with token can create,
     //edit their own post and view other posts
     app.use(
@@ -25,10 +28,14 @@ mongoose
       routes.posts
     );
 
-    //Auth routes: people login and sign up here ; Accessible by everyone
-    app.use("/api/auth", routes.auth);
+    //Update Account route: Users update their account info
+    app.use(
+      "/account",
+      passport.authenticate("jwt", { session: false }),
+      routes.account
+    );
 
-    //setup ROUTE for admin
+    //setup ROUTE for admins: create admin user, view all posts and users
     app.use(
       "/api/setup",
       passport.authenticate("jwt", { session: false }),
