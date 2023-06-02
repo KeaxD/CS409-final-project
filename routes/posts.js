@@ -30,9 +30,12 @@ router.get("/:id", (req, res) => {
 
 //Creating one post
 router.post("/", async (req, res) => {
-  if (!req.body.name) {
-    res.status(400);
-    res.json({ sucess: false, error: "Missing title or content" });
+  if (!req.body.name || !req.body.content) {
+    console.log("req.body.name = ", req.body.name);
+    console.log("req.body.content = ", req.body.content);
+    return res
+      .status(400)
+      .json({ success: false, error: "Missing title or content" });
   }
   const post = new Post({
     name: req.body.name,
@@ -41,33 +44,37 @@ router.post("/", async (req, res) => {
   });
   try {
     const newPost = await post.save();
-    res.status(201).json(newPost);
+    return res.status(201).json(newPost);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    return res.status(400).json({ message: err.message });
   }
 });
 
 //Updating one post
 router.patch("/:id", getPost, async (req, res) => {
-  if (req.body.name != null) {
-    res.post.name = req.body.name;
-  }
-  if (req.body.userPostId != null) {
-    res.post.userPostId = req.body.userPostId;
-  }
-  try {
-    const updatedPost = await res.post.save();
-    res.json(updatedPost);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
+  if (req.post.author._id == req.user._id) {
+    if (req.body.name != null) {
+      res.post.name = req.body.name;
+    }
+    if (req.body.content != null) {
+      res.post.content = req.body.content;
+    }
+    try {
+      const updatedPost = await res.post.save();
+      res.json({ Message: "Content was updated!", NewPost: updatedPost });
+    } catch (err) {
+      res.status(400).json({ message: err.message });
+    }
+  } else {
+    res.status(401).json({ message: "You're not the author of the post" });
   }
 });
 
 //Delete one post
-router.delete("/:id", getPost, async (req, res) => {
+router.delete("/:id", getPost, checkIdentity, async (req, res) => {
   try {
     await res.post.deleteOne();
-    res.json({ message: "Deleted Post" });
+    res.json({ message: `${req.user.name} deleted post: ${res.post.name}` });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -75,15 +82,35 @@ router.delete("/:id", getPost, async (req, res) => {
 
 async function getPost(req, res, next) {
   try {
-    post = await Post.findById(req.params.id);
+    post = await Post.findById(req.params.id).populate("author");
     if (post == null) {
       return res.status(404).json({ message: "Cannot find post" });
+    }
+    req.post = post;
+    next();
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+}
+
+function checkIdentity(req, res, next) {
+  try {
+    console.log("req.user._id", req.user._id.toString());
+    if (
+      req.post.author._id != req.user._id.toString() &&
+      req.user.role != "admin"
+    ) {
+      return res.status(401).json({
+        error: "Unauthorized",
+        message: `The User ${req.user.name} cannot access this`,
+      });
+    } else {
+      res.post = post;
+      next(); // Call next to pass control to the next middleware or route handler
     }
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }
-  res.post = post;
-  next();
 }
 
 module.exports = router;

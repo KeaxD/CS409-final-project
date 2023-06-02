@@ -6,29 +6,6 @@ const config = require("../config/config");
 
 const router = express.Router();
 
-router.get("/", async (req, res) => {
-  try {
-    const users = await User.find();
-    res.json(users);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
-
-router.get("/:id", getUser, (req, res) => {
-  res.json(res.user);
-});
-
-//Delete one user
-router.delete("/:id", getUser, async (req, res) => {
-  try {
-    await res.user.deleteOne();
-    res.json({ message: "Deleted User" });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
-
 router.post("/signup", (req, res) => {
   if (!req.body.email || !req.body.password) {
     res.status(400);
@@ -75,7 +52,7 @@ router.post("/login", async (req, res) => {
     if (isMatch) {
       const tokenObj = { _id: user._id, email: user.email };
       const token = jwt.sign(tokenObj, config.secret);
-      res.send({ success: true, token: "JWT" + token });
+      res.send({ success: true, token: "JWT " + token });
     } else {
       res.status(401).send({ success: false, message: "Wrong Password" });
     }

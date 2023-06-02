@@ -17,19 +17,22 @@ mongoose
     const app = express();
     app.use(express.json());
 
+    //POSTS ROUTES where you user can create, edit their own post and view other posts
     app.use(
       "/posts",
       passport.authenticate("jwt", { session: false }),
       routes.posts
-    ); //POSTS ROUTES
-
-    app.use(
-      "/api/login", //LOGIN ROUTES
-      passport.authenticate("jwt", { session: false }),
-      routes.api
     );
 
-    app.use("/api/auth", routes.auth); //AUTH ROUTES
+    //AUTH ROUTES people login and sign up here
+    app.use("/api/auth", routes.auth);
+
+    //setup ROUTE
+    app.use(
+      "/api/setup",
+      passport.authenticate("jwt", { session: false }),
+      routes.setup
+    );
 
     app.listen("8080", () => console.log("Server is listening on port 8080"));
   })
