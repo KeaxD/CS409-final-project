@@ -17,17 +17,18 @@ mongoose
     const app = express();
     app.use(express.json());
 
-    //POSTS ROUTES where you user can create, edit their own post and view other posts
+    //Post Routes: where users with token can create,
+    //edit their own post and view other posts
     app.use(
       "/posts",
       passport.authenticate("jwt", { session: false }),
       routes.posts
     );
 
-    //AUTH ROUTES people login and sign up here
+    //Auth routes: people login and sign up here ; Accessible by everyone
     app.use("/api/auth", routes.auth);
 
-    //setup ROUTE
+    //setup ROUTE for admin
     app.use(
       "/api/setup",
       passport.authenticate("jwt", { session: false }),
