@@ -49,22 +49,18 @@ router.post("/", async (req, res) => {
 });
 
 //Updating one post
-router.patch("/:id", getPost, async (req, res) => {
-  if (req.post.author._id == req.user._id) {
-    if (req.body.name != null) {
-      res.post.name = req.body.name;
-    }
-    if (req.body.content != null) {
-      res.post.content = req.body.content;
-    }
-    try {
-      const updatedPost = await res.post.save();
-      res.json({ Message: "Content was updated!", NewPost: updatedPost });
-    } catch (err) {
-      res.status(400).json({ message: err.message });
-    }
-  } else {
-    res.status(401).json({ message: "You're not the author of the post" });
+router.patch("/:id", getPost, checkIdentity, async (req, res) => {
+  if (req.body.name != null) {
+    res.post.name = req.body.name;
+  }
+  if (req.body.content != null) {
+    res.post.content = req.body.content;
+  }
+  try {
+    const updatedPost = await res.post.save();
+    res.json({ message: "Content was updated!", NewPost: updatedPost });
+  } catch (err) {
+    res.status(400).json({ message: err.message });
   }
 });
 

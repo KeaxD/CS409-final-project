@@ -49,12 +49,12 @@ Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc4ZmRmM2E4M
 ###----------------CREATE ONE POST------------------------------
 
 POST http://localhost:8080/posts/
-Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5NzFkMjIxZjQwMTY1NDA4NzI0NTQiLCJlbWFpbCI6IlZpb2xldEB0ZXN0LmNvbSIsImlhdCI6MTY4NTY4MDYwOX0.Qwt6oBuMgvJjn6sjhJSaoI4XbNd3Uuz6pj8lR1DgWw0
+Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5NGIwNjFjYTcxZjY1NWMyOWM3MWIiLCJlbWFpbCI6IktldmluQHRlc3QuY29tIiwiaWF0IjoxNjg1Njg4NTcxfQ.D82uQfFg0ZK1I3rutXSZD0JWuWwV9GC-i0vP8bpn5-Q
 Content-Type: application/json
 
 {
-    "name": "Violet's Second Post",
-    "content": "Dear Diary....2"
+    "name": "Kevin's Second Post",
+    "content": "Today I did...."
 }
 
 ###----------------DELETE ONE POST------------------------------
@@ -66,9 +66,10 @@ Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5NTIyNzU2M
 ###----------------UPDATE ONE POST------------------------------
 
 
-PATCH http://localhost:8080/posts/6478f3561ef04eda403ae4db 
+PATCH http://localhost:8080/posts/64799139abe3b9498c08f932 
+Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5NGIwNjFjYTcxZjY1NWMyOWM3MWIiLCJlbWFpbCI6IktldmluQHRlc3QuY29tIiwiaWF0IjoxNjg1Njg4NTcxfQ.D82uQfFg0ZK1I3rutXSZD0JWuWwV9GC-i0vP8bpn5-Q
 Content-Type: application/json
 
 {
-    "name": "My Second updated First post name"
+    "name": "My updated First post name"
 }
