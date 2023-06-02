@@ -40,6 +40,20 @@ router.patch("/update", getUser, async (req, res) => {
   }
 });
 
+//Delete one user
+router.delete("/:id", async (req, res) => {
+  if (req.user.role !== "admin") {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+  try {
+    const deletedUser = await User.findById(req.params.id);
+    await deletedUser.deleteOne();
+    res.json({ message: `${req.user.name} deleted user: ${deletedUser.name}` });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 async function getUser(req, res, next) {
   try {
     user = await User.findById(req.user._id);

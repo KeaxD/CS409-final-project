@@ -6,9 +6,6 @@ const router = express.Router();
 
 //Creating admin user
 router.post("/admin", (req, res) => {
-  if (req.user.role != "admin") {
-    return res.status(401).json({ message: "Access denied: Unauthorized" });
-  }
   if (!req.body.email || !req.body.password) {
     res.status(400);
     res.json({ success: false, message: "Email and Password are required" });
@@ -46,7 +43,7 @@ router.post("/admin", (req, res) => {
 });
 
 //Getting all posts and users
-router.get("/", async (req, res) => {
+router.get("/", getUser, async (req, res) => {
   if (req.user.role != "admin") {
     return res.status(401).json({ message: "Access denied: Unauthorized" });
   }
@@ -62,5 +59,18 @@ router.get("/", async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+
+async function getUser(req, res, next) {
+  try {
+    user = await User.findById(req.user._id);
+    if (user == null) {
+      return res.status(404).json({ message: "Cannot find user" });
+    }
+    req.user = user;
+    next();
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+}
 
 module.exports = router;

@@ -1,12 +1,11 @@
-###----------------GET ALL USERS AND POSTS----------------------
+###----------------GET ALL USERS AND POSTS-----------------
 
 GET http://localhost:8080/api/setup/
-Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5NTIyNzU2MGViMWRiODgzYzdmOTEiLCJlbWFpbCI6IkFsZXhAdGVzdC5jb20iLCJpYXQiOjE2ODU2OTI2NzN9.IgMn_mU-_Dh_T1hSmHAoexdiGDp_7IUxe_mM70N5ipI
+Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5YWIwYzE0ZWRiNzQ2NTY4MzUxMWQiLCJlbWFpbCI6IkFsZXhAdGVzdC5jb20iLCJpYXQiOjE2ODU2OTY1ODN9.5HjlCdKkFh85vi4vql9GC1hlzcjAEC7Bw8mng2b3dQg
 
 ###----------------CREATE AN ADMIN ---------------------
 
 POST http://localhost:8080/api/setup/admin
-Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc4ZmRmM2E4MDI2NTAwNzY2ODZjYzAiLCJlbWFpbCI6IkFsdmluQHRlc3QuY29tIiwiaWF0IjoxNjg1NjcwNDczfQ.lR5Vpe8ofKAR0EywkmVD_V6f-A6ZtCsXuOxKDs4fkt4
 Content-Type: application/json
 
 {
@@ -39,9 +38,9 @@ Content-Type: application/json
     "password": "secret"
 }
 
-###----------------GET POSTS------------------------------
+###----------------GET ONE POST------------------------------
 
-GET http://localhost:8080/posts/647901b682252a443602e00f
+GET http://localhost:8080/posts/
 Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc4ZmRmM2E4MDI2NTAwNzY2ODZjYzAiLCJlbWFpbCI6IkFsdmluQHRlc3QuY29tIiwiaWF0IjoxNjg1NjcwNDczfQ.lR5Vpe8ofKAR0EywkmVD_V6f-A6ZtCsXuOxKDs4fkt4
 
 
@@ -58,7 +57,7 @@ Content-Type: application/json
 
 ###----------------DELETE ONE POST------------------------------
 
-DELETE http://localhost:8080/posts/647974effec803460bee009e
+DELETE http://localhost:8080/posts/
 Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5NTIyNzU2MGViMWRiODgzYzdmOTEiLCJlbWFpbCI6IkFsZXhAdGVzdC5jb20iLCJpYXQiOjE2ODU2ODgxMzh9.soY646evtcDJ0bB5UmwWFYhqAAyKke7VRjXuCi8xZ8k
 
 
@@ -76,16 +75,22 @@ Content-Type: application/json
 ###---------------GET ACCOUNT INFO-------------------------------
 
 GET http://localhost:8080/account/
-Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5NGIwNjFjYTcxZjY1NWMyOWM3MWIiLCJlbWFpbCI6IktldmluQHRlc3QuY29tIiwiaWF0IjoxNjg1Njg4NTcxfQ.D82uQfFg0ZK1I3rutXSZD0JWuWwV9GC-i0vP8bpn5-Q
+Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5NzFkMjIxZjQwMTY1NDA4NzI0NTQiLCJlbWFpbCI6IlZpb2xldEB0ZXN0LmNvbSIsImlhdCI6MTY4NTY5MzgxMX0.nYwSKaqQBOYdoXgXsXGRJ2FQac3Vu0AXWDDyJdyvuco
+
 
 
 ###---------------PATCH ACCOUNT INFO-------------------------------
 
 PATCH  http://localhost:8080/account/update
-Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5NGIwNjFjYTcxZjY1NWMyOWM3MWIiLCJlbWFpbCI6IktldmluQHRlc3QuY29tIiwiaWF0IjoxNjg1Njg4NTcxfQ.D82uQfFg0ZK1I3rutXSZD0JWuWwV9GC-i0vP8bpn5-Q
+Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5NzFkMjIxZjQwMTY1NDA4NzI0NTQiLCJlbWFpbCI6IlZpb2xldEB0ZXN0LmNvbSIsImlhdCI6MTY4NTY5MzgxMX0.nYwSKaqQBOYdoXgXsXGRJ2FQac3Vu0AXWDDyJdyvuco
 Content-Type: application/json
 
 {
-    "name": "Kevin",
-    "password": "1234"
+    "name": "Violet",
+    "role": "admin"
 }
+
+###----------------DELETE ONE USER------------------------------
+
+DELETE http://localhost:8080/account/64782737a3fa90551ed87422
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5YWIwYzE0ZWRiNzQ2NTY4MzUxMWQiLCJlbWFpbCI6IkFsZXhAdGVzdC5jb20iLCJpYXQiOjE2ODU2OTUyNzJ9.X0dp-7pvaPP8g5Ed9cv9JwGHVutXRYsmeW-NaNzEc-8
