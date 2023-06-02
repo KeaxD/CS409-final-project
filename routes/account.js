@@ -3,7 +3,7 @@ const User = require("../models/user");
 
 const router = express.Router();
 
-//account/
+//Welcome
 router.get("/", async (req, res) => {
   try {
     const user = await User.findOne({ email: req.user.email });
@@ -12,11 +12,45 @@ router.get("/", async (req, res) => {
         .status(404)
         .json({ success: false, message: "User not found" });
     } else {
-      return res.json({ message: `Welcome ${user.name}!` });
+      return res.json({ message: `Welcome ${user.name}!`, info: user });
     }
   } catch (e) {
     return res.status(500).json({ message: e });
   }
 });
+
+router.patch("/update", getUser, async (req, res) => {
+  if (req.body.name) {
+    res.user.name = req.body.name;
+  }
+  if (req.body.email) {
+    res.user.email = req.body.email;
+  }
+  if (req.body.password) {
+    res.user.password = req.body.password;
+  }
+  try {
+    const updatedUser = await res.user.save();
+    res.json({
+      message: "Your information has been updated!",
+      NewInfo: updatedUser,
+    });
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
+async function getUser(req, res, next) {
+  try {
+    user = await User.findById(req.user._id);
+    if (user == null) {
+      return res.status(404).json({ message: "Cannot find user" });
+    }
+    res.user = user;
+    next();
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+}
 
 module.exports = router;
