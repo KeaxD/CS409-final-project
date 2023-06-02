@@ -33,9 +33,9 @@ POST http://localhost:8080/api/auth/login
 Content-Type: application/json
 
 {
-    "name": "Alex",
-    "email": "Alex@test.com",
-    "password": "secret"
+    "name": "Violet",
+    "email": "Violet@test.com",
+    "password": "qwer"
 }
 
 ###----------------GET ONE POST------------------------------
@@ -82,15 +82,15 @@ Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5NzFkMjIxZ
 ###---------------PATCH ACCOUNT INFO-------------------------------
 
 PATCH  http://localhost:8080/account/update
-Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5NzFkMjIxZjQwMTY1NDA4NzI0NTQiLCJlbWFpbCI6IlZpb2xldEB0ZXN0LmNvbSIsImlhdCI6MTY4NTY5MzgxMX0.nYwSKaqQBOYdoXgXsXGRJ2FQac3Vu0AXWDDyJdyvuco
+Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5NzFkMjIxZjQwMTY1NDA4NzI0NTQiLCJlbWFpbCI6IlZpb2xldEB0ZXN0LmNvbSIsImlhdCI6MTY4NTczMjY2N30.5uu_XQe_cHcMlV23PccN9cuZ8aZ1TxAptjoj89XhCDM
 Content-Type: application/json
 
 {
-    "name": "Violet",
-    "role": "admin"
+    "password": "12345",
+    "oldpassword": "qwer"
 }
 
 ###----------------DELETE ONE USER------------------------------
 
-DELETE http://localhost:8080/account/64782737a3fa90551ed87422
-Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5YWIwYzE0ZWRiNzQ2NTY4MzUxMWQiLCJlbWFpbCI6IkFsZXhAdGVzdC5jb20iLCJpYXQiOjE2ODU2OTUyNzJ9.X0dp-7pvaPP8g5Ed9cv9JwGHVutXRYsmeW-NaNzEc-8
+DELETE http://localhost:8080/account/
+Authorization:

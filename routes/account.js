@@ -27,7 +27,17 @@ router.patch("/update", getUser, async (req, res) => {
     res.user.email = req.body.email;
   }
   if (req.body.password) {
-    res.user.password = req.body.password;
+    if (!req.body.oldpassword) {
+      return res.json({ message: "Please provide your old password" });
+    } else {
+      const user = await User.findById(req.user._id);
+      const isMatch = await user.comparePassword(req.body.oldpassword);
+      if (isMatch) {
+        res.user.password = req.body.password;
+      } else {
+        return res.json({ message: "Your old password is incorrect" });
+      }
+    }
   }
   try {
     const updatedUser = await res.user.save();
