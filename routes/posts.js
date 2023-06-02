@@ -31,8 +31,6 @@ router.get("/:id", (req, res) => {
 //Creating one post
 router.post("/", async (req, res) => {
   if (!req.body.name || !req.body.content) {
-    console.log("req.body.name = ", req.body.name);
-    console.log("req.body.content = ", req.body.content);
     return res
       .status(400)
       .json({ success: false, error: "Missing title or content" });
@@ -95,7 +93,6 @@ async function getPost(req, res, next) {
 
 function checkIdentity(req, res, next) {
   try {
-    console.log("req.user._id", req.user._id.toString());
     if (
       req.post.author._id != req.user._id.toString() &&
       req.user.role != "admin"

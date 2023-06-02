@@ -35,9 +35,9 @@ POST http://localhost:8080/api/auth/login
 Content-Type: application/json
 
 {
-    "name": "Violet",
-    "email": "Violet@test.com",
-    "password": "12345"
+    "name": "Alex",
+    "email": "Alex@test.com",
+    "password": "secret"
 }
 
 ###----------------GET POSTS------------------------------
@@ -59,8 +59,8 @@ Content-Type: application/json
 
 ###----------------DELETE ONE POST------------------------------
 
-DELETE http://localhost:8080/posts/647974d6fec803460bee009b
-Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5NzFkMjIxZjQwMTY1NDA4NzI0NTQiLCJlbWFpbCI6IlZpb2xldEB0ZXN0LmNvbSIsImlhdCI6MTY4NTY4MDYwOX0.Qwt6oBuMgvJjn6sjhJSaoI4XbNd3Uuz6pj8lR1DgWw0
+DELETE http://localhost:8080/posts/647974effec803460bee009e
+Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5NTIyNzU2MGViMWRiODgzYzdmOTEiLCJlbWFpbCI6IkFsZXhAdGVzdC5jb20iLCJpYXQiOjE2ODU2ODgxMzh9.soY646evtcDJ0bB5UmwWFYhqAAyKke7VRjXuCi8xZ8k
 
 
 ###----------------UPDATE ONE POST------------------------------
