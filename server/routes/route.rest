@@ -57,8 +57,8 @@ Content-Type: application/json
 
 ###----------------DELETE ONE POST------------------------------
 
-DELETE http://localhost:8080/posts/
-Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5NTIyNzU2MGViMWRiODgzYzdmOTEiLCJlbWFpbCI6IkFsZXhAdGVzdC5jb20iLCJpYXQiOjE2ODU2ODgxMzh9.soY646evtcDJ0bB5UmwWFYhqAAyKke7VRjXuCi8xZ8k
+DELETE http://localhost:8080/posts/647f94bb88a5a434e5ea94bb
+Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5YWIwYzE0ZWRiNzQ2NTY4MzUxMWQiLCJlbWFpbCI6IkFsZXhAdGVzdC5jb20iLCJpYXQiOjE2ODU2OTY1ODN9.5HjlCdKkFh85vi4vql9GC1hlzcjAEC7Bw8mng2b3dQg
 
 
 ###----------------UPDATE ONE POST------------------------------

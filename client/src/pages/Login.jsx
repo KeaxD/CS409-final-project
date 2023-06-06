@@ -5,7 +5,6 @@ import { resolvePath, useNavigate } from "react-router-dom";
 
 export default function Login({ setToken }) {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -20,7 +19,7 @@ export default function Login({ setToken }) {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    if (email && name && password) {
+    if (email && password) {
       e.preventDefault();
       try {
         const response = await fetch("http://localhost:8080/api/auth/login", {
@@ -29,7 +28,6 @@ export default function Login({ setToken }) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            name: name,
             email: email,
             password: password,
           }),
@@ -56,10 +54,6 @@ export default function Login({ setToken }) {
     <div className="login-wrapper">
       {loggedIn ? <h1>Logged in</h1> : <h1>Please Log in</h1>}
       <form onSubmit={handleLogin}>
-        <label>
-          <p>Username</p>
-          <input type="text" onChange={(e) => setName(e.target.value)} />
-        </label>
         <label>
           <p>Email address</p>
           <input type="text" onChange={(e) => setEmail(e.target.value)} />

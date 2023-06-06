@@ -49,6 +49,13 @@ function App() {
       </BrowserRouter>
     );
   }
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+    window.location.href = "/";
+  };
+
   return (
     <BrowserRouter>
       <header className="main-header">
@@ -62,14 +69,7 @@ function App() {
           <Link to="/posts" className="links">
             Posts
           </Link>
-          <Link
-            to="/"
-            className="links"
-            onClick={() => {
-              localStorage.removeItem("token");
-              window.location.reload();
-            }}
-          >
+          <Link to="/" className="links" onClick={handleLogout}>
             Logout
           </Link>
         </ul>
