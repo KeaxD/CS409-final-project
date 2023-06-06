@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Login/Login";
 import Home from "./pages/Home";
@@ -8,21 +9,33 @@ function App() {
 
   if (!token) {
     return (
-      <>
+      <BrowserRouter>
         <header className="main-header">
           <ul className="options">
-            <li>Home</li>
-            <li>About</li>
-            <li>Sign Up</li>
-            <li>Login</li>
+            <Link to="/" className="links">
+              Home
+            </Link>
+            <Link to="/about" className="links">
+              About
+            </Link>
+            <Link to="/sign-up" className="links">
+              Sign up
+            </Link>
+            <Link to="/login" className="links">
+              Login
+            </Link>
           </ul>
         </header>
-        <Home />
-      </>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </main>
+      </BrowserRouter>
     );
   }
 
-  return <BrowserRouter></BrowserRouter>;
+  return;
 }
 
 export default App;

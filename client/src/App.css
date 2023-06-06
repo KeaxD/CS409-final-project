@@ -1,3 +1,9 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .main-header {
   display: flex;
   align-items: center;
@@ -8,8 +14,15 @@
   display: flex;
 }
 
-.options li {
-  padding: 30px;
+.links {
+  margin: 30px;
+  padding: 1em;
   list-style-type: none;
   font-size: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.links:hover {
+  color: rgb(80, 80, 80);
 }
