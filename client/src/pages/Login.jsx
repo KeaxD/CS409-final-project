@@ -7,6 +7,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -26,17 +27,21 @@ export default function Login() {
         const data = await response.json();
         if (response.ok) {
           const token = data.token;
-          console.log(token);
+          setLoggedIn(true);
         } else if (response.status === 401) {
           console.log(response.statusText, ": Invalid Password/Email");
         }
-      } catch (err) {}
+      } catch (err) {
+        console.log(err, "Wrong password/email");
+      }
+    } else {
+      console.log("Please provide Email and Password");
     }
   };
 
   return (
     <div className="login-wrapper">
-      <h1>Please Log In</h1>
+      {loggedIn ? <h1>Logged in</h1> : <h1>Please Log in</h1>}
       <form onSubmit={handleLogin}>
         <label>
           <p>Username</p>
