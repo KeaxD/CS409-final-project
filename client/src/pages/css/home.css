@@ -1,0 +1,14 @@
+.page-content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+}
+
+.main-heading {
+  padding: 2em;
+}
+
+.content {
+  padding: 2em;
+}

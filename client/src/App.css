@@ -1,0 +1,15 @@
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.options {
+  display: flex;
+}
+
+.options li {
+  padding: 30px;
+  list-style-type: none;
+  font-size: 20px;
+}
