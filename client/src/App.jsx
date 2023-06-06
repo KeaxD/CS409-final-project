@@ -3,6 +3,7 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Login/Login";
 import Home from "./pages/Home";
+import About from "./pages/About";
 
 function App() {
   const [token, setToken] = useState();
@@ -29,6 +30,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </main>
       </BrowserRouter>
