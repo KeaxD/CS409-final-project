@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./css/Login.css";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -26,7 +27,7 @@ export default function Signup() {
         if (response.status === 409) {
           console.log("This email is already taken");
         } else if (response.ok) {
-          console.log("Success! User was added");
+          console.log(`Success! User: ${response.json(user)} was added`);
         } else {
           console.log("Internal Server Error");
         }
