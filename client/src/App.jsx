@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "./pages/Login";
@@ -8,6 +8,13 @@ import Signup from "./pages/Signup";
 
 function App() {
   const [token, setToken] = useState();
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
 
   if (!token) {
     return (
@@ -39,8 +46,37 @@ function App() {
       </BrowserRouter>
     );
   }
-
-  return;
+  return (
+    <BrowserRouter>
+      <header className="main-header">
+        <ul className="options">
+          <Link to="/" className="links">
+            Home
+          </Link>
+          <Link to="/about" className="links">
+            About
+          </Link>
+          {/* Add a logout link/button */}
+          <Link
+            to="/"
+            className="links"
+            onClick={() => {
+              localStorage.removeItem("token");
+              window.location.reload();
+            }}
+          >
+            Logout
+          </Link>
+        </ul>
+      </header>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
+  );
 }
 
 export default App;
