@@ -35,7 +35,7 @@ export default function Signup() {
         alert(e);
       }
     } else {
-      alert("Please enter username/password");
+      alert("Please enter username, email and password");
     }
   };
 
@@ -45,17 +45,26 @@ export default function Signup() {
       <form onSubmit={handleSignUp}>
         <label>
           <p>Username</p>
-          <input type="text" onChange={(e) => setName(e.target.value)} />
+          <input
+            type="text"
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
         </label>
         <label>
           <p>Email address</p>
-          <input type="text" onChange={(e) => setEmail(e.target.value)} />
+          <input
+            type="text"
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
         </label>
         <label>
           <p>Password</p>
           <input
             type="password"
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </label>
         <div>
