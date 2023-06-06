@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Login from "./components/Login/Login";
+import Login from "./pages/Login";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Signup from "./pages/Signup";
 
 function App() {
   const [token, setToken] = useState();
@@ -31,6 +32,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login setToken={setToken} />} />
+            <Route path="/sign-up" element={<Signup setToken={setToken} />} />
           </Routes>
         </main>
       </BrowserRouter>

@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const passport = require("passport");
+const cors = require("cors");
 require("./config/passport")(passport);
 
 mongoose
@@ -16,6 +17,7 @@ mongoose
 
     const app = express();
     app.use(express.json());
+    app.use(cors());
 
     //Auth routes: people login and sign up here ; Accessible by everyone
     app.use("/api/auth", routes.auth);

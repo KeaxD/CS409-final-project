@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./Login.css";
+import "./css/Login.css";
+import PropTypes from "prop-types";
 
 export default function Login() {
   const [username, setUsername] = useState();
@@ -11,13 +12,18 @@ export default function Login() {
       <form>
         <label>
           <p>Username</p>
-          <input type="text" onChange={(e) => setUsername(e.target.value)} />
+          <input
+            type="text"
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
         </label>
         <label>
           <p>Password</p>
           <input
             type="password"
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </label>
         <div>
@@ -28,6 +34,6 @@ export default function Login() {
   );
 }
 
-// Login.propTypes = {
-//   setToken: PropTypes.func.isRequired,
-// };
+Login.propTypes = {
+  setToken: PropTypes.func.isRequired,
+};
