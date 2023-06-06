@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import PostCard from "../components/PostsCard";
+import "./css/posts.css";
 
 const RenderPost = ({ data }) => {
   if (data?.length > 0) {
-    return data.map((post) => <div key={post._id}>{post.content}</div>);
+    return data.map((post) => <PostCard key={post._id} {...post} />);
   }
 };
 
@@ -38,7 +40,7 @@ export default function Posts() {
         <h1>Community Posts</h1>
         <p>Browse through the community posts!</p>
       </div>
-      <div>
+      <div className="allposts-container">
         <RenderPost data={allPosts} />
       </div>
     </section>
