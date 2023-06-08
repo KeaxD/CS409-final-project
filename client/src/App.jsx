@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Signup from "./pages/Signup";
 import Posts from "./pages/Posts";
+import SinglePost from "./pages/SinglePost";
 
 function App() {
   const [token, setToken] = useState();
@@ -79,6 +80,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/posts" element={<Posts />} />
+          <Route path="/posts/:postId" element={<SinglePost />} />
         </Routes>
       </main>
     </BrowserRouter>

@@ -15,3 +15,8 @@
   line-height: 25px;
   word-spacing: 1px;
 }
+
+.post-link {
+  text-decoration: underline;
+  color: black;
+}

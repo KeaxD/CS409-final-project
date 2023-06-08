@@ -53,7 +53,7 @@ export default function Posts() {
         }),
       });
       if (response.ok) {
-        window.location.reload();
+        fetchPosts();
         console.log("Post successfully created!");
       } else {
         console.log(response, "Server error");

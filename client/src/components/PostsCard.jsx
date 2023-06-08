@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./postcard.css";
 
@@ -12,7 +13,9 @@ const PostCard = ({ _id, name, content, author, dateCreated }) => {
   return (
     <div className="card-container">
       <div>
-        <h3 className="content-title">{name}</h3>
+        <Link to={`/posts/${_id}`} key={_id} className="post-link">
+          <h3 className="content-title">{name}</h3>
+        </Link>
       </div>
       <div>
         <p className="date">{formattedDate}</p>
