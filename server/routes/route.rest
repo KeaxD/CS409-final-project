@@ -51,21 +51,21 @@ Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5YWIwYzE0Z
 Content-Type: application/json
 
 {
-    "name": "Kevin's 2nd Long Post",
+    "name": "Alex's Long Post",
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, \n sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet luctus venenatis lectus magna fringilla. Facilisis leo vel fringilla est ullamcorper eget nulla. Eleifend donec pretium vulputate sapien nec sagittis. In vitae turpis massa sed elementum. Dolor sit amet consectetur adipiscing elit duis tristique. Tristique et egestas quis /n ipsum suspendisse ultrices gravida dictum. Tortor pretium viverra suspendisse potenti nullam. In vitae turpis massa sed elementum. \n Tempor orci eu lobortis elementum nibh tellus molestie. Integer enim neque/n volutpat ac. Nec ultrices dui sapien eget mi proin sed libero. Diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus. Nulla facilisi cras fermentum odio eu feugiat. \n Ut porttitor leo a diam sollicitudin tempor. In fermentum et sollicitudin ac."
 }
 
 ###----------------DELETE ONE POST------------------------------
 
-DELETE http://localhost:8080/posts/647f94bb88a5a434e5ea94bb
+DELETE http://localhost:8080/posts/
 Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5YWIwYzE0ZWRiNzQ2NTY4MzUxMWQiLCJlbWFpbCI6IkFsZXhAdGVzdC5jb20iLCJpYXQiOjE2ODU2OTY1ODN9.5HjlCdKkFh85vi4vql9GC1hlzcjAEC7Bw8mng2b3dQg
 
 
 ###----------------UPDATE ONE POST------------------------------
 
 
-PATCH http://localhost:8080/posts/64799139abe3b9498c08f932 
-Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5NTIyNzU2MGViMWRiODgzYzdmOTEiLCJlbWFpbCI6IkFsZXhAdGVzdC5jb20iLCJpYXQiOjE2ODU2ODk2Nzh9.62ZrOjBFrtTh_uM1ZNxoFdmTyTiYoWVhB12Uoati2U0
+PATCH http://localhost:8080/posts/647a5fbb959b41aa3ed235c2 
+Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5YWIwYzE0ZWRiNzQ2NTY4MzUxMWQiLCJlbWFpbCI6IkFsZXhAdGVzdC5jb20iLCJpYXQiOjE2ODU2OTY1ODN9.5HjlCdKkFh85vi4vql9GC1hlzcjAEC7Bw8mng2b3dQg
 Content-Type: application/json
 
 {
@@ -92,6 +92,6 @@ Content-Type: application/json
 
 ###----------------DELETE ONE USER------------------------------
 
-DELETE http://localhost:8080/account/647ff5676a44571c775cacb6
+DELETE http://localhost:8080/account/6480047174ab2ec91cacb1aa
 Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5YWIwYzE0ZWRiNzQ2NTY4MzUxMWQiLCJlbWFpbCI6IkFsZXhAdGVzdC5jb20iLCJpYXQiOjE2ODU2OTY1ODN9.5HjlCdKkFh85vi4vql9GC1hlzcjAEC7Bw8mng2b3dQg
 

@@ -5,36 +5,48 @@
   text-align: center;
 }
 
-#root::before,
-#root::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 2em;
-  background-color: darkslateblue;
+main {
+  display: flex;
+  justify-content: space-between;
 }
 
-#root::before {
+.main-post {
+  padding-top: 3em;
+}
+
+.left-line,
+.right-line {
+  height: 100vh;
+}
+
+.left-line {
+  width: 5%;
+  background-color: darkslateblue;
   left: 0;
 }
 
-#root::after {
-  right: 0;
+.right-line {
+  width: 5%;
+  background-color: darkslateblue;
 }
 
 .main-header {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: darkslateblue;
 }
 
 .options {
+  position: relative;
   display: flex;
+  justify-content: center;
+  background: lightskyblue;
+  width: 60%;
 }
 
 .links {
-  margin: 30px;
+  margin: 10px 5%;
   padding: 1em;
   list-style-type: none;
   font-size: 20px;

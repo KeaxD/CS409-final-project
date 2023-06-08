@@ -40,12 +40,16 @@ function App() {
           </ul>
         </header>
         <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/login" element={<Login setToken={setToken} />} />
-            <Route path="/sign-up" element={<Signup setToken={setToken} />} />
-          </Routes>
+          <div className="left-line"></div>
+          <div className="main-post">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/login" element={<Login setToken={setToken} />} />
+              <Route path="/sign-up" element={<Signup setToken={setToken} />} />
+            </Routes>
+          </div>
+          <div className="right-line"></div>
         </main>
       </BrowserRouter>
     );
@@ -76,12 +80,16 @@ function App() {
         </ul>
       </header>
       <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/posts" element={<Posts />} />
-          <Route path="/posts/:postId" element={<SinglePost />} />
-        </Routes>
+        <div className="left-line"></div>
+        <div className="main-post">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/posts" element={<Posts />} />
+            <Route path="/posts/:postId" element={<SinglePost />} />
+          </Routes>
+        </div>
+        <div className="right-line"></div>
       </main>
     </BrowserRouter>
   );
