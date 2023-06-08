@@ -35,6 +35,24 @@ const SinglePost = () => {
     return <div>Loading post...</div>;
   }
 
+  const handleDeletePost = async () => {
+    try {
+      const storedToken = localStorage.getItem("token");
+      const response = await fetch(`http://localhost:8080/posts/${postId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: storedToken,
+        },
+      });
+      if (response.ok) {
+        const res = response.json();
+      }
+    } catch (err) {
+      console.log(err);
+    }
+    window.location.href = "/posts";
+  };
+
   const formattedDate = new Date(post.dateCreated).toLocaleDateString(
     undefined,
     {
@@ -50,6 +68,12 @@ const SinglePost = () => {
       <p className="post-content">{post.content}</p>
       <p>Author: {post.author.name}</p>
       <p>Date: {formattedDate}</p>
+      <div className="post-buttons">
+        <button className="btn update">Update</button>
+        <button className="btn delete" onClick={handleDeletePost}>
+          Delete
+        </button>
+      </div>
     </div>
   );
 };

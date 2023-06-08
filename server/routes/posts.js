@@ -86,7 +86,7 @@ router.delete("/", async (req, res) => {
 
 async function getPost(req, res, next) {
   try {
-    post = await Post.findOne(req.params.id).populate("author");
+    post = await Post.findById(req.params.id).populate("author");
     if (post == null) {
       return res.status(404).json({ message: "Cannot find post" });
     }
