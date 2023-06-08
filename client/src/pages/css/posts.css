@@ -12,6 +12,15 @@
   padding: 20px;
 }
 
+.label-post-name {
+  font-size: 17px;
+}
+
+.post-name {
+  border-radius: 50em;
+  text-align: center;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -28,6 +37,7 @@ form {
   font-size: 17px;
   font-family: "Times New Roman", Times, serif;
   resize: vertical;
+  border-radius: 6px;
 }
 
 .post-name {

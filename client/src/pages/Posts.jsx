@@ -80,13 +80,14 @@ export default function Posts() {
       </div>
       <div className="post-form" method="POST">
         <form onSubmit={handleSubmitPost}>
-          <label>Title</label>
+          <label className="label-post-name">Title</label>
           <input
             type="text"
             name="name"
             id="name"
             onChange={handleChangeName}
             className="post-name"
+            placeholder="My Awesome post"
             required
           />
           <textarea
