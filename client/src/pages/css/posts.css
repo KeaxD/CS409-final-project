@@ -6,10 +6,22 @@
 }
 
 .post-form {
-  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  align-items: center;
+  justify-content: center;
 }
 
 .post {
+  margin: 14px;
   max-width: 570px;
   max-height: 400px;
   padding: 10px;
@@ -18,12 +30,15 @@
   resize: vertical;
 }
 
+.post-name {
+  padding: 5px;
+  width: 300px;
+}
+
 .btn-post {
-  margin-left: auto;
   border-radius: 0.375rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  background-color: rgb(0, 0, 0);
   color: black;
   background-color: #a7aaf8b9;
   padding-left: 1.25rem /* 20px */;
@@ -31,6 +46,7 @@
   padding-top: 0.3rem /* 10px */;
   padding-bottom: 0.3rem;
   text-align: center;
+  border-color: #a7aaf8b9;
 }
 
 .btn-post:hover {

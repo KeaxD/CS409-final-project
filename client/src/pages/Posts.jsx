@@ -34,6 +34,43 @@ export default function Posts() {
     fetchPosts();
   }, []);
 
+  const [postContent, setPostContent] = useState("");
+  const [postName, setPostName] = useState("");
+
+  const handleSubmitPost = async (e) => {
+    e.preventDefault();
+    try {
+      const storedToken = localStorage.getItem("token");
+      const response = await fetch("http://localhost:8080/posts/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: storedToken,
+        },
+        body: JSON.stringify({
+          name: postName,
+          content: postContent,
+        }),
+      });
+      if (response.ok) {
+        window.location.reload();
+        console.log("Post successfully created!");
+      } else {
+        console.log(response, "Server error");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleChangeContent = (e) => {
+    setPostContent(e.target.value);
+  };
+
+  const handleChangeName = (e) => {
+    setPostName(e.target.value);
+  };
+
   return (
     <section>
       <div>
@@ -41,8 +78,17 @@ export default function Posts() {
         <p>Browse through the community posts!</p>
         <p>or write your own ...</p>
       </div>
-      <div className="post-form">
-        <form>
+      <div className="post-form" method="POST">
+        <form onSubmit={handleSubmitPost}>
+          <label>Title</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            onChange={handleChangeName}
+            className="post-name"
+            required
+          />
           <textarea
             name="post"
             id="post"
@@ -50,9 +96,13 @@ export default function Posts() {
             rows="5"
             className="post"
             placeholder="Today, I ..."
+            onChange={handleChangeContent}
+            required
           ></textarea>
+          <button className="btn-post" type="submit">
+            Create Post
+          </button>
         </form>
-        <button className="btn-post">Create Post</button>
       </div>
       <div className="allposts-container">
         <RenderPost data={allPosts} />
