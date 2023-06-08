@@ -1,7 +1,26 @@
 #root {
-  max-width: 1280px;
+  position: relative;
+  min-height: 100vh;
   margin: 0 auto;
   text-align: center;
+}
+
+#root::before,
+#root::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 7em;
+  background-color: darkslateblue;
+}
+
+#root::before {
+  left: 0;
+}
+
+#root::after {
+  right: 0;
 }
 
 .main-header {

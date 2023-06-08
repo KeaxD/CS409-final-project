@@ -39,6 +39,20 @@ export default function Posts() {
       <div>
         <h1>Community Posts</h1>
         <p>Browse through the community posts!</p>
+        <p>or write your own ...</p>
+      </div>
+      <div className="post-form">
+        <form>
+          <textarea
+            name="post"
+            id="post"
+            cols="72"
+            rows="5"
+            className="post"
+            placeholder="Today, I ..."
+          ></textarea>
+        </form>
+        <button className="btn-post">Create Post</button>
       </div>
       <div className="allposts-container">
         <RenderPost data={allPosts} />
