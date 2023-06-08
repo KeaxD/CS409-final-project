@@ -92,6 +92,6 @@ Content-Type: application/json
 
 ###----------------DELETE ONE USER------------------------------
 
-DELETE http://localhost:8080/account/647ed2312ccb62c7bf29a198
+DELETE http://localhost:8080/account/647ff5676a44571c775cacb6
 Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5YWIwYzE0ZWRiNzQ2NTY4MzUxMWQiLCJlbWFpbCI6IkFsZXhAdGVzdC5jb20iLCJpYXQiOjE2ODU2OTY1ODN9.5HjlCdKkFh85vi4vql9GC1hlzcjAEC7Bw8mng2b3dQg
 
