@@ -85,8 +85,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/posts" element={<Posts />} />
             <Route path="/posts/:postId" element={<SinglePost />} />
+            <Route path="/posts" element={<Posts />} />
           </Routes>
         </div>
         <div className="right-line"></div>

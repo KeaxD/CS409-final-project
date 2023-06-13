@@ -24,10 +24,34 @@
   padding: 10px;
   margin: 10px 2em;
   background-color: rgb(37, 144, 211);
-  color: rgb(236, 236, 236);
+  color: rgb(254, 251, 251);
 }
 
 .btn:hover {
   cursor: pointer;
   background-color: rgba(37, 144, 211, 0.753);
+}
+
+.post-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.label-post-name {
+  font-size: 17px;
+}
+
+.post-name {
+  border-radius: 50em;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  align-items: center;
+  justify-content: center;
 }

@@ -57,7 +57,7 @@ Content-Type: application/json
 
 ###----------------DELETE ONE POST------------------------------
 
-DELETE http://localhost:8080/posts/
+DELETE http://localhost:8080/posts/648224f344d63dfa781afccf
 Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5YWIwYzE0ZWRiNzQ2NTY4MzUxMWQiLCJlbWFpbCI6IkFsZXhAdGVzdC5jb20iLCJpYXQiOjE2ODU2OTY1ODN9.5HjlCdKkFh85vi4vql9GC1hlzcjAEC7Bw8mng2b3dQg
 
 
@@ -75,7 +75,7 @@ Content-Type: application/json
 ###---------------GET ACCOUNT INFO-------------------------------
 
 GET http://localhost:8080/account/
-Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5NzFkMjIxZjQwMTY1NDA4NzI0NTQiLCJlbWFpbCI6IlZpb2xldEB0ZXN0LmNvbSIsImlhdCI6MTY4NTY5MzgxMX0.nYwSKaqQBOYdoXgXsXGRJ2FQac3Vu0AXWDDyJdyvuco
+Authorization:JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc5YWIwYzE0ZWRiNzQ2NTY4MzUxMWQiLCJlbWFpbCI6IkFsZXhAdGVzdC5jb20iLCJpYXQiOjE2ODU2OTY1ODN9.5HjlCdKkFh85vi4vql9GC1hlzcjAEC7Bw8mng2b3dQg
 
 
 

@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
         .status(404)
         .json({ success: false, message: "User not found" });
     } else {
-      return res.json({ message: `Welcome ${user.name}!`, info: user });
+      return res.json(user);
     }
   } catch (e) {
     return res.status(500).json({ message: e });
