@@ -9,7 +9,12 @@ export default function Home() {
           <h1>Home</h1>
         </div>
         <div className="content">
-          <p>Welcome</p>
+          <h2>Welcome to BlogConnect</h2>
+          <p className="content-paragraph">
+            <a href="/login">Login</a>/ <a href="/sign-up">Sign up</a> to view
+            the posts of other users, make your own post and share it with
+            everyone!
+          </p>
         </div>
       </div>
     </section>

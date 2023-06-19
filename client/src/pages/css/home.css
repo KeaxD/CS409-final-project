@@ -12,3 +12,11 @@
 .content {
   padding: 2em;
 }
+
+.content-paragraph {
+  padding: 5em;
+}
+
+.content-paragraph a {
+  text-decoration: none;
+}
