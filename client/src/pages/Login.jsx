@@ -38,7 +38,7 @@ export default function Login({ setToken }) {
           setToken(token);
           localStorage.setItem("token", token);
           setLoggedIn(true);
-          navigate("/");
+          navigate("/posts");
         } else if (response.status === 401) {
           console.log(response.statusText, ": Invalid Password/Email");
         }
