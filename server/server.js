@@ -8,7 +8,7 @@ const cors = require("cors");
 require("./config/passport")(passport);
 
 mongoose
-  .connect("mongodb://mongo:27017/someRandomDB", {
+  .connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
