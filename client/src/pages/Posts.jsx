@@ -14,13 +14,16 @@ export default function Posts() {
   const fetchPosts = async () => {
     try {
       const storedToken = localStorage.getItem("token");
-      const response = await fetch("http://localhost:8080/posts/", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: storedToken,
-        },
-      });
+      const response = await fetch(
+        "https://cs409-final-project.onrender.com/posts/",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: storedToken,
+          },
+        }
+      );
       if (response.ok) {
         const result = await response.json();
         setAllPosts(result.reverse());
@@ -41,17 +44,20 @@ export default function Posts() {
     e.preventDefault();
     try {
       const storedToken = localStorage.getItem("token");
-      const response = await fetch("http://localhost:8080/posts/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: storedToken,
-        },
-        body: JSON.stringify({
-          name: postName,
-          content: postContent,
-        }),
-      });
+      const response = await fetch(
+        "https://cs409-final-project.onrender.com/posts/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: storedToken,
+          },
+          body: JSON.stringify({
+            name: postName,
+            content: postContent,
+          }),
+        }
+      );
       if (response.ok) {
         fetchPosts();
         console.log("Post successfully created!");

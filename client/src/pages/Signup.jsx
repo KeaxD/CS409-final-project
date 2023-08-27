@@ -11,17 +11,20 @@ export default function Signup() {
     e.preventDefault();
     if (email && name && password) {
       try {
-        const response = await fetch("http://localhost:8080/api/auth/signup", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: name,
-            email: email,
-            password: password,
-          }),
-        });
+        const response = await fetch(
+          "https://cs409-final-project.onrender.com/api/auth/signup",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              name: name,
+              email: email,
+              password: password,
+            }),
+          }
+        );
         await response.json();
         if (response.status === 409) {
           console.log("This email is already taken");

@@ -22,12 +22,15 @@ const SinglePost = () => {
   const handleDeletePost = async () => {
     try {
       const storedToken = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:8080/posts/${postId}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: storedToken,
-        },
-      });
+      const response = await fetch(
+        `https://cs409-final-project.onrender.com/posts/${postId}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: storedToken,
+          },
+        }
+      );
       if (response.ok) {
         window.location.href = "/posts";
       }
@@ -49,14 +52,17 @@ const SinglePost = () => {
         requestBody.content = postContent;
       }
 
-      const response = await fetch(`http://localhost:8080/posts/${postId}`, {
-        method: "PATCH",
-        headers: {
-          Authorization: storedToken,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestBody),
-      });
+      const response = await fetch(
+        `https://cs409-final-project.onrender.com/posts/${postId}`,
+        {
+          method: "PATCH",
+          headers: {
+            Authorization: storedToken,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestBody),
+        }
+      );
       if (response.ok) {
         console.log(response, "Post was successfully updated");
         setUpdating(null);
@@ -78,12 +84,15 @@ const SinglePost = () => {
     const fetchPost = async () => {
       try {
         const storedToken = localStorage.getItem("token");
-        const response = await fetch(`http://localhost:8080/posts/${postId}`, {
-          method: "GET",
-          headers: {
-            Authorization: storedToken,
-          },
-        });
+        const response = await fetch(
+          `https://cs409-final-project.onrender.com/posts/${postId}`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: storedToken,
+            },
+          }
+        );
         if (response.ok) {
           const postData = await response.json();
           setPost(postData);
@@ -97,12 +106,15 @@ const SinglePost = () => {
     const fetchUser = async () => {
       try {
         const storedToken = localStorage.getItem("token");
-        const response = await fetch("http://localhost:8080/account/", {
-          method: "GET",
-          headers: {
-            Authorization: storedToken,
-          },
-        });
+        const response = await fetch(
+          "https://cs409-final-project.onrender.com/account/",
+          {
+            method: "GET",
+            headers: {
+              Authorization: storedToken,
+            },
+          }
+        );
         if (response.ok) {
           const data = await response.json();
           setUser(data);
